@@ -5,11 +5,7 @@
     "homepage" : "http://code.google.com/p/sabreamf/",
     "license" : "BSD-3-Clause",
     "require" : {
-        "php"          : ">=5.2.1"
-    },
-    "require-dev" : {
-        "phing/phing" : "*",
-        "phpunit/phpunit" : "*"
+        "php"          : ">=5.4.0"
     },
     "authors" : [
         {
@@ -23,8 +19,8 @@
         "source" : "https://github.com/fruux/sabre-vobject"
     },
     "autoload" : {
-        "psr-0" : {
-            "SabreAMF" : "lib/"
+        "psr-4" : {
+            "SabreAMF\\" : "lib/"
         }
     }
 }

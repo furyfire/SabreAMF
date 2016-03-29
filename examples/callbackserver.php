@@ -3,7 +3,7 @@
     /* $Id: server.php 1218 2006-03-07 23:07:44Z evert $ */
 
     // Include the server class
-    include 'SabreAMF/CallbackServer.php';
+    include 'vendor/autoload.php';
 
 
     function myCallBack($service,$method,$data) {
@@ -14,7 +14,7 @@
 
 
     // Init server 
-    $server = new SabreAMF_CallbackServer();
+    $server = new \SabreAMF\CallbackServer();
 
     $server->onInvokeService = 'myCallBack';
 

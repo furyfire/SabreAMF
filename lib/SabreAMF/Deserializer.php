@@ -1,65 +1,64 @@
 <?php
 
+namespace SabreAMF;
+
+/**
+ * Deserializer 
+ * 
+ * @package SabreAMF 
+ * @version $Id$
+ * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
+ * @author Evert Pot (http://www.rooftopsolutions.nl/) 
+ * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+ */
+
+/**
+ * Deserializer 
+ * 
+ * This is the abstract Deserializer. The AMF0 and AMF3 classes descent from this class
+ */
+abstract class Deserializer
+{
+
     /**
-     * SabreAMF_Deserializer 
+     * stream 
      * 
-     * @package SabreAMF 
-     * @version $Id$
-     * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
-     * @author Evert Pot (http://www.rooftopsolutions.nl/) 
-     * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+     * @var InputStream
      */
-
+    protected $stream;
 
     /**
-     * SabreAMF_Deserializer 
-     * 
-     * This is the abstract Deserializer. The AMF0 and AMF3 classes descent from this class
+     * __construct 
+     *
+     * @param InputStream $stream 
+     * @return void
      */
-    abstract class SabreAMF_Deserializer {
+    public function __construct(InputStream $stream)
+    {
 
-        /**
-         * stream 
-         * 
-         * @var SabreAMF_InputStream
-         */
-        protected $stream;
+        $this->stream = $stream;
+    }
 
-        /**
-         * __construct 
-         *
-         * @param SabreAMF_InputStream $stream 
-         * @return void
-         */
-        public function __construct(SabreAMF_InputStream $stream) {
+    /**
+     * readAMFData 
+     * 
+     * Starts reading an AMF block from the stream
+     * 
+     * @param mixed $settype 
+     * @return mixed 
+     */
+    public abstract function readAMFData($settype = null);
 
-            $this->stream = $stream;
+    /**
+     * getLocalClassName 
+     * 
+     * @param string $remoteClass 
+     * @return mixed 
+     */
+    protected function getLocalClassName($remoteClass)
+    {
 
-        }
+        return ClassMapper::getLocalClass($remoteClass);
+    }
 
-        /**
-         * readAMFData 
-         * 
-         * Starts reading an AMF block from the stream
-         * 
-         * @param mixed $settype 
-         * @return mixed 
-         */
-        public abstract function readAMFData($settype = null); 
-
-
-        /**
-         * getLocalClassName 
-         * 
-         * @param string $remoteClass 
-         * @return mixed 
-         */
-        protected function getLocalClassName($remoteClass) {
-
-            return SabreAMF_ClassMapper::getLocalClass($remoteClass);
-
-        } 
-
-   }
-
-
+}

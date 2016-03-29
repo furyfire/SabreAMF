@@ -1,29 +1,29 @@
 <?php
 
+namespace SabreAMF;
+
+/**
+ * Exception 
+ * 
+ * @package SabreAMF
+ * @version $Id$
+ * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
+ * @author Evert Pot (http://www.rooftopsolutions.nl) 
+ * @author Renaun Erickson (http://renaun.com/blog)
+ * @license licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause)
+ */
+
+/**
+ * This interface can provide detailed information about an exception
+ * Implement this interface to provide faultDetail in flex2 and detail in Flash Remoting
+ */
+interface DetailException
+{
+
     /**
-     * SabreAMF_Exception 
+     * Returns detailed information about the exception 
      * 
-     * @package SabreAMF
-     * @version $Id$
-     * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
-     * @author Evert Pot (http://www.rooftopsolutions.nl) 
-     * @author Renaun Erickson (http://renaun.com/blog)
-     * @license licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause)
+     * @return void
      */
-
-    /**
-     * This interface can provide detailed information about an exception
-     * Implement this interface to provide faultDetail in flex2 and detail in Flash Remoting
-     */
-    interface SabreAMF_DetailException {
-
-        /**
-         * Returns detailed information about the exception 
-         * 
-         * @return void
-         */
-        function getDetail();
-
-    }
-
-
+    function getDetail();
+}

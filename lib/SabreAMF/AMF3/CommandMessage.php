@@ -1,55 +1,56 @@
 <?php
 
+namespace SabreAMF\AMF3;
+
+/**
+ * CommandMessage 
+ * 
+ * @uses SabreAMF
+ * @uses AbstractMessage
+ * @package 
+ * @version $Id$
+ * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
+ * @author Evert Pot (http://www.rooftopsolutions.nl/) 
+ * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+ */
+
+/**
+ * This class is used for service commands, like pinging the server
+ */
+class CommandMessage extends AbstractMessage
+{
+
+    const SUBSCRIBE_OPERATION = 0;
+    const UNSUSBSCRIBE_OPERATION = 1;
+    const POLL_OPERATION = 2;
+    const CLIENT_SYNC_OPERATION = 4;
+    const CLIENT_PING_OPERATION = 5;
+    const CLUSTER_REQUEST_OPERATION = 7;
+    const LOGIN_OPERATION = 8;
+    const LOGOUT_OPERATION = 9;
+    const SESSION_INVALIDATE_OPERATION = 10;
+    const MULTI_SUBSCRIBE_OPERATION = 11;
+    const DISCONNECT_OPERATION = 12;
+
     /**
-     * SabreAMF_AMF3_CommandMessage 
+     * operation 
      * 
-     * @uses SabreAMF
-     * @uses _AMF3_AbstractMessage
-     * @package 
-     * @version $Id$
-     * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
-     * @author Evert Pot (http://www.rooftopsolutions.nl/) 
-     * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+     * @var int 
      */
+    public $operation;
 
     /**
-     * This class is used for service commands, like pinging the server
+     * messageRefType 
+     * 
+     * @var int 
      */
-    class SabreAMF_AMF3_CommandMessage extends SabreAMF_AMF3_AbstractMessage {
+    public $messageRefType;
 
-        const SUBSCRIBE_OPERATION          = 0;
-        const UNSUSBSCRIBE_OPERATION       = 1;
-        const POLL_OPERATION               = 2;
-        const CLIENT_SYNC_OPERATION        = 4;
-        const CLIENT_PING_OPERATION        = 5;
-        const CLUSTER_REQUEST_OPERATION    = 7; 
-        const LOGIN_OPERATION              = 8;
-        const LOGOUT_OPERATION             = 9;
-        const SESSION_INVALIDATE_OPERATION = 10;
-        const MULTI_SUBSCRIBE_OPERATION    = 11;
-        const DISCONNECT_OPERATION         = 12;
+    /**
+     * correlationId 
+     * 
+     * @var string 
+     */
+    public $correlationId;
 
-        /**
-         * operation 
-         * 
-         * @var int 
-         */
-        public $operation;
-
-        /**
-         * messageRefType 
-         * 
-         * @var int 
-         */
-        public $messageRefType;
-
-        /**
-         * correlationId 
-         * 
-         * @var string 
-         */
-        public $correlationId;
-
-    }
-
-
+}

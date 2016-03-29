@@ -1,63 +1,58 @@
 <?php
 
+namespace SabreAMF\AMF3;
+
+/**
+ * ErrorMessage 
+ * 
+ * @uses ErrorMessage
+ * @package SabreAMF
+ * @subpackage AMF3
+ * @version $Id$
+ * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
+ * @author Evert Pot (http://www.rooftopsolutions.nl/) 
+ * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+ */
+
+/**
+ * This is the receipt for Error Messages 
+ */
+class ErrorMessage extends AcknowledgeMessage
+{
+
     /**
-     * SabreAMF_AMF3_ErrorMessage 
+     * Extended data that the remote destination has chosen to associate with 
+     * this error to facilitate custom error processing on the client. 
      * 
-     * @uses SabreAMF_AMF3_ErrorMessage
-     * @package SabreAMF
-     * @subpackage AMF3
-     * @version $Id$
-     * @copyright Copyright (C) 2006-2009 Rooftop Solutions. All rights reserved.
-     * @author Evert Pot (http://www.rooftopsolutions.nl/) 
-     * @licence http://www.freebsd.org/copyright/license.html  BSD License (4 Clause) 
+     * @var object 
      */
-
+    public $extendedData = null;
 
     /**
-     * This is the receipt for Error Messages 
+     * The fault code for the error. 
+     * 
+     * @var string
      */
-    class SabreAMF_AMF3_ErrorMessage extends SabreAMF_AMF3_AcknowledgeMessage {
+    public $faultCode = '';
 
-        /**
-         * Extended data that the remote destination has chosen to associate with 
-         * this error to facilitate custom error processing on the client. 
-         * 
-         * @var object 
-         */
-        public $extendedData = null;
+    /**
+     * Detailed description of what caused the error. 
+     * 
+     * @var string
+     */
+    public $faultDetail = '';
 
+    /**
+     * A simple description of the error. 
+     *
+     * @var string
+     */
+    public $faultString = '';
 
-        /**
-         * The fault code for the error. 
-         * 
-         * @var string
-         */
-        public $faultCode = '';
-
-
-        /**
-         * Detailed description of what caused the error. 
-         * 
-         * @var string
-         */
-        public $faultDetail = '';
-
-
-        /**
-         * A simple description of the error. 
-         *
-         * @var string
-         */
-        public $faultString = '';
-
-
-        /**
-         * Should a root cause exist for the error, this property contains those details.
-         *
-         * @var object 
-         */
-        public $rootCause = null;
-
-    }
-
-
+    /**
+     * Should a root cause exist for the error, this property contains those details.
+     *
+     * @var object 
+     */
+    public $rootCause = null;
+}

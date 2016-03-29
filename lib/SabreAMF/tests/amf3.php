@@ -1,4 +1,5 @@
 <?php
+
 require_once 'PHPUnit/Framework.php';
 
 require_once 'tests/amf3/int.php';
@@ -13,8 +14,8 @@ class AMF3_Tests
         $suite->addTestSuite('Test_AMF3_int');
 
         return $suite;
-
     }
 
 }
+
 ?>
