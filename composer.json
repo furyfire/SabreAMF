@@ -1,5 +1,5 @@
 {
-    "name": "sabre/amf",
+    "name": "furyfire/sabreamf",
     "description" : "SabreAMF is a Flash Remoting server and client for PHP",
     "keywords" : [ "Flash", "ActionScript", "Remoting", "AMF", "AMF0", "AMF3" ],
     "homepage" : "http://code.google.com/p/sabreamf/",
@@ -20,7 +20,7 @@
     },
     "autoload" : {
         "psr-4" : {
-            "SabreAMF\\" : "lib/"
+            "SabreAMF\\" : "src/"
         }
     }
 }
